@@ -4,40 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <title>IFF Calculator</title>
 </head>
 <body>
     <div class="container">
-        <header><h1>IFF Calculator</h1></header>
-        
-        <div class="input-container">
-            <label for="ticketNumber">Ticket Number:</label>
-            <input type="text" id="ticketNumber" value="HSSTAA-1234" class="ticket-input">
-            <p></p>
+        <header>
+            <h1>IFF Calculator</h1>
+            <p>IFF Score for your ticket priortisation.</p>
+        </header>
+        <div class="left-container">
+            <div class="input-container">
+                <label for="ticketNumber">Ticket Number:</label>
+                <input type="text" id="ticketNumber" value="HSSTAA-1234" class="ticket-input">
+                <p></p>
+            </div>
+            <div class="input-container">
+                <label for="impact">Impact:</label>
+                <input type="range" id="impact" min="1" max="5" value="1" class="slider">
+                <p>Min: 1 | Max: 5 | Selected: <span id="impactValue">1</span></p>
+            </div>
+            <div class="input-container">
+                <label for="frequency">Frequency:</label>
+                <input type="range" id="frequency" min="1" max="5" value="1" class="slider">
+                <p>Min: 1 | Max: 5 | Selected: <span id="frequencyValue">1</span></p>
+            </div>
+            <div class="input-container">
+                <label for="frustration">Frustration:</label>
+                <input type="range" id="frustration" min="1" max="5" value="1" class="slider">
+                <p>Min: 1 | Max: 5 | Selected: <span id="frustrationValue">1</span></p>
+            </div>
+            <div class="input-container">
+                <label for="calculate">Calculate Score:</label>
+                <input type="submit" id="calculate">
+                <p></p>
+            </div>
+            <div class="result">
+                <p>IFF Score for Ticket <span id="ticketNumberResult"></span>: <span id="iffScore">1</span></p>
+            </div>
         </div>
-        <div class="input-container">
-            <label for="impact">Impact:</label>
-            <input type="range" id="impact" min="1" max="5" value="1" class="slider">
-            <p>Min: 1 | Max: 5 | Selected: <span id="impactValue">1</span></p>
-        </div>
-        <div class="input-container">
-            <label for="frequency">Frequency:</label>
-            <input type="range" id="frequency" min="1" max="5" value="1" class="slider">
-            <p>Min: 1 | Max: 5 | Selected: <span id="frequencyValue">1</span></p>
-        </div>
-        <div class="input-container">
-            <label for="frustration">Frustration:</label>
-            <input type="range" id="frustration" min="1" max="5" value="1" class="slider">
-            <p>Min: 1 | Max: 5 | Selected: <span id="frustrationValue">1</span></p>
-        </div>
-        <div class="input-container">
-            <label for="calculate">Calculate Score:</label>
-            <input type="submit" id="calculate">
-            <p></p>
-        </div>
-        <div class="result">
-            <p>IFF Score for Ticket <span id="ticketNumberResult"></span>: <span id="iffScore">1</span></p>
+        <div class="right-container">
+            <div class="add-container">
+                <button id="addButton">ADD</button>
+            </div>
+
         </div>
     </div>
     <script src="script.js"></script>

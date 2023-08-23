@@ -1,0 +1,21 @@
+https://it.umn.edu/services-technologies/how-tos/tdx-determine-impact-urgency-priority
+
+- Can change IFF to IUP Calculator 
+- priority = (Impact + Urgency) * Frustration
+
+Impact = 1 to 4
+4 - Affecting entire org
+3 - Afecting multiple departmets
+2 - Affecting single dept 
+1 - Affeting single person
+
+Urgency = 1 to 4
+4 - Critical
+3 - High 
+2 - Medium
+1 - Low
+
+Frustration = 1 to 4
+4 = High Frustration
+1 = Low Frustration
+
