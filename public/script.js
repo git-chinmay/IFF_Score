@@ -9,8 +9,7 @@ const frequencyValueDisplay = document.getElementById("frequencyValue");
 const frustrationValueDisplay = document.getElementById("frustrationValue");
 const iffScoreDisplay = document.getElementById("iffScore");
 const calculatesubmit = document.getElementById('calculate');
-const addButton = document.createElement("button");
-
+const addButton = document.getElementById("addButton");
 
 
 // Varibale initialisations
@@ -64,22 +63,49 @@ calculatesubmit.addEventListener("click", () => {
     console.log(iffScoreArray);
 });
 
-// ADD button functionality
-addButton.textContent = "ADD";
+
+// // ADD button functionality
 addButton.addEventListener("click", () => {
-    iffScoreArray.forEach(score => {
-        const scoreElement = document.createElement("p");
-        scoreElement.textContent = score;
-        document.body.appendChild(scoreElement);
+    const rightContainer = document.querySelector('.right-container');
+    
+    // Remove the existing scoresContainer if it exists
+    const existingScoresContainer = document.querySelector('.scores-container');
+    if (existingScoresContainer) {
+        rightContainer.removeChild(existingScoresContainer);
+    }
+
+    // Create a new scoresContainer
+    const scoresContainer = document.createElement("div");
+    scoresContainer.classList.add('scores-container'); // Add a class for identification
+
+    const uniqueScoresSet = new Set();
+
+    // Remove duplicates from the score array
+    iffScoreArray.forEach(score => uniqueScoresSet.add(score));
+
+    // Convert the set back to an array and sort it in descending order
+    const uniqueScoresArray = Array.from(uniqueScoresSet).sort((a, b) => {
+        const valueA = parseInt(a.split(":")[1]);
+        const valueB = parseInt(b.split(":")[1]);
+        return valueB - valueA;
     });
 
-    // Clear the array after displaying the scores
-    // iffScoreArray = [];
+    // console.log("@@@@@", uniqueScoresArray);
+    uniqueScoresArray.forEach(score => {
+        const scoreElement = document.createElement("p");
+        scoreElement.textContent = score;
+        scoresContainer.appendChild(scoreElement);
+    });
+
+    // Append the new scoresContainer
+    rightContainer.appendChild(scoresContainer);
 });
-document.body.appendChild(addButton);
 
 
+
+
+
+// Display the slider input selection realtime
 impactInput.addEventListener("input", updateValues);
 frequencyInput.addEventListener("input", updateValues);
 frustrationInput.addEventListener("input", updateValues);
-// ticketNumberInput.addEventListener("input", updateTicketIFFScore);
